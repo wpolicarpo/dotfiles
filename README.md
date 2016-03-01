@@ -1,3 +1,13 @@
+# Dependencies
+
+- [Homebrew](http://brew.sh)
+- [Vagrant](https://www.vagrantup.com/)
+
+# Packages
+
+- ansible
+- wget
+
 # TODO
 
 - `ln -s ~/.dotfiles/.zshrc ~/.zshrc`
