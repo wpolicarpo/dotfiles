@@ -8,6 +8,8 @@
 - ansible
 - wget
 - rbenv
+- mysql-connector-c (`mysql2` gem)
+
 
 # TODO
 
