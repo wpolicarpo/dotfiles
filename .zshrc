@@ -83,5 +83,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
- export RBENV_ROOT=/usr/local/var/rbenv
- eval "$(rbenv init -)"
+
+# rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
+eval "$(rbenv init -)"
+
+# hub
+eval "$(hub alias -s)"
