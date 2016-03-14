@@ -204,7 +204,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>274 267 924 485 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 4 1439 873 0 0 1440 877 </string>
+	<string>0 426 585 451 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -910,7 +910,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.15549880266189575</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unlimited Scrollback</key>
@@ -933,10 +933,14 @@
 			<string>/Users/wpolicarpo</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveShownPromoWithId_4</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>477124403.79325998</real>
+	<real>478066773.92907399</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>477544089.249942</real>
+	<real>479358350.21975201</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -999,8 +1003,10 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-02-19T03:07:33Z</date>
+	<date>2016-03-13T01:52:48Z</date>
 	<key>SavePasteHistory</key>
+	<false/>
+	<key>Secure Input</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<false/>
