@@ -71,23 +71,26 @@ fi
 pecho "magenta" "### Configuring Sublime Text ###"
 
 export SUBLIME_PATH=~/Library/Application\ Support/Sublime\ Text\ 3
-export SUBLIME_PACKAGES_PATH="$SUBLIME_PATH/Packages/User"
+export SUBLIME_PACKAGES_PATH=$SUBLIME_PATH/Packages/User
 
 if [ ! -d "$SUBLIME_PATH" ]; then
   pecho "red" "[-] Sublime Text 3 is not installed"
 fi
 
+pecho "green" "[+] Installing terminal shortcut"
+ln -fs /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/sublime
+
 pecho "green" "[+] Installing Package Control"
 wget -q https://packagecontrol.io/Package%20Control.sublime-package -O $SUBLIME_PATH/Installed\ Packages/Package\ Control.sublime-package
 
-pecho "green" "[+] Installing terminal shortcut"
-ln -fs "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
-
 pecho "green" "[+] Installing user preferences"
-ln -fs "${DOTFILES}/sublime/Preferences.sublime-settings" "${SUBLIME_PACKAGES_PATH}/Preferences.sublime-settings"
+ln -fs ${DOTFILES}/sublime/Preferences.sublime-settings ${SUBLIME_PACKAGES_PATH}/Preferences.sublime-settings
+
+pecho "green" "[+] Installing packages"
+ln -fs ${DOTFILES}/sublime/Package\ Control.sublime-settings ${SUBLIME_PACKAGES_PATH}/Package\ Control.sublime-settings
 
 pecho "green" "[+] Installing user key bindings"
-ln -fs "${DOTFILES}/sublime/Default\ \(OSX\).sublime-keymap" "${SUBLIME_PACKAGES_PATH}/Default\ \(OSX\).sublime-keymap"
+ln -fs $DOTFILES/sublime/Default\ \(OSX\).sublime-keymap ${SUBLIME_PACKAGES_PATH}/Default\ \(OSX\).sublime-keymap
 
 #######################################################################################################################
 # BEGIN: rc files #####################################################################################################

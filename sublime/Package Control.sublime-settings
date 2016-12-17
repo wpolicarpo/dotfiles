@@ -1,0 +1,30 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"Alignment",
+		"EditorConfig",
+		"Git",
+		"GitGutter",
+		"Github Tools",
+		"Handlebars",
+		"Indent XML",
+		"LoremIpsum",
+		"Markdown Preview",
+		"Package Control",
+		"RSpec",
+		"Ruby Hash Converter",
+		"Ruby on Rails snippets",
+		"SCSS",
+		"SideBarEnhancements",
+		"SublimeEnhancedUtilitiesSet",
+		"SublimeREPL",
+		"TrailingSpaces",
+		"WakaTime",
+		"yardoc"
+	]
+}
