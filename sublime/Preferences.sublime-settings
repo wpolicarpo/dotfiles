@@ -1,28 +1,31 @@
 {
-	"create_window_at_startup": false,
-	"folder_exclude_patterns":
-	[
-		".svn",
-		".git",
-		".hg",
-		"CVS",
-		"tmp",
-		"github",
-		".coverage",
-		"coverage",
-		"log",
-		"doc"
-	],
-	"highlight_line": true,
-	"ignored_packages":
-	[
-		"Vintage"
-	],
-	"initial_empty_line": false,
-	"show_encoding": true,
-	"show_full_path": true,
-	"show_line_endings": true,
-	"tab_size": 2,
-	"trailing_spaces": true,
-	"translate_tabs_to_spaces": true
+  "create_window_at_startup": false,
+  "draw_white_space": "all",
+  "folder_exclude_patterns":
+  [
+    ".svn",
+    ".git",
+    ".hg",
+    "CVS",
+    "tmp",
+    "github",
+    ".coverage",
+    "coverage",
+    "log",
+    "doc"
+  ],
+  "highlight_line": true,
+  "highlight_modified_tabs": true,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "initial_empty_line": false,
+  "show_encoding": true,
+  "show_full_path": true,
+  "show_line_endings": true,
+  "tab_size": 2,
+  "trailing_spaces": true,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true
 }
