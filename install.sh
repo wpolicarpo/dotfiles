@@ -39,7 +39,7 @@ brew update > /dev/null
 #######################################################################################################################
 pecho "magenta" "### Configuring tools ###"
 
-TOOLS=(wget mysql-connector-c)
+TOOLS=(wget mysql-connector-c jemalloc)
 
 for tool in "${TOOLS[@]}"
 do
@@ -64,6 +64,10 @@ then
 else
   pecho "yellow" "[!] asdf is already installed"
 fi
+
+asdf plugin-list | grep -q elixir || asdf plugin-add elixir
+asdf plugin-list | grep -q nodejs || asdf plugin-add nodejs
+asdf plugin-list | grep -q ruby || asdf plugin-add ruby
 
 #######################################################################################################################
 # BEGIN: Sublime Text 3 ###############################################################################################
