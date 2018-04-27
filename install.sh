@@ -65,6 +65,7 @@ else
   pecho "yellow" "[!] asdf is already installed"
 fi
 
+asdf plugin-list | grep -q erlang || asdf plugin-add erlang
 asdf plugin-list | grep -q elixir || asdf plugin-add elixir
 asdf plugin-list | grep -q nodejs || asdf plugin-add nodejs
 asdf plugin-list | grep -q ruby || asdf plugin-add ruby
