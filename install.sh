@@ -53,16 +53,16 @@ do
 done
 
 #######################################################################################################################
-# BEGIN: rbenv ########################################################################################################
+# BEGIN: asdf #########################################################################################################
 #######################################################################################################################
-pecho "magenta" "### Configuring rbenv ###"
+pecho "magenta" "### Configuring asdf ###"
 
-if ! type "rbenv" > /dev/null
+if ! type "asdf" > /dev/null
 then
-  pecho "green" "[+] Installing rbenv"
-  brew install rbenv
+  pecho "green" "[+] Installing asdf"
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 else
-  pecho "yellow" "[!] rbenv is already installed"
+  pecho "yellow" "[!] asdf is already installed"
 fi
 
 #######################################################################################################################
