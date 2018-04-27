@@ -39,7 +39,7 @@ brew update > /dev/null
 #######################################################################################################################
 pecho "magenta" "### Configuring tools ###"
 
-TOOLS=(wget node mysql-connector-c)
+TOOLS=(wget mysql-connector-c)
 
 for tool in "${TOOLS[@]}"
 do
