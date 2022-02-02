@@ -1,0 +1,7 @@
+[alias]
+  co = checkout
+  st = status
+[pager]
+  branch = false
+[pull]
+  rebase = true
