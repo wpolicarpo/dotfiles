@@ -8,3 +8,7 @@
 	rebase = true
 [include]
 	path = ~/.gitconfig_local
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
