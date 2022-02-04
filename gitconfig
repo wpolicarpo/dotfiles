@@ -1,6 +1,7 @@
 [alias]
 	co = checkout
 	st = status
+	comend = commit --amend --no-edit
 [pager]
 	branch = false
 [pull]
