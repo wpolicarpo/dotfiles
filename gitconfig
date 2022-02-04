@@ -1,7 +1,9 @@
 [alias]
-  co = checkout
-  st = status
+	co = checkout
+	st = status
 [pager]
-  branch = false
+	branch = false
 [pull]
-  rebase = true
+	rebase = true
+[include]
+	path = ~/.gitconfig_local
