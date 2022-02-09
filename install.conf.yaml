@@ -10,6 +10,7 @@
     ~/.gitconfig: gitconfig
     ~/.gitignore_global: gitignore_global
     ~/.zshrc: zshrc
+    ~/.zsh_aliases: zsh_aliases
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

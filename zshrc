@@ -16,3 +16,9 @@ esac
 antigen theme robbyrussell
 
 antigen apply
+
+source ~/.zsh_aliases
+
+if [ -f ~/.zsh_aliases_local ]; then
+    source ~/.zsh_aliases_local
+fi
