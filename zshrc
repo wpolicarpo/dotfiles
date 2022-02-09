@@ -1,4 +1,4 @@
-ZSH_BASE=$HOME/dotfiles
+ZSH_BASE=$HOME/.dotfiles
 
 source $ZSH_BASE/antigen/antigen.zsh
 
