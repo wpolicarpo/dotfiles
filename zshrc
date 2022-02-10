@@ -1,6 +1,10 @@
-ZSH_BASE=$HOME/.dotfiles
+if [ $SPIN ]; then
+  DOTFILES_DIR=~/dotfiles
+else
+  DOTFILES_DIR=~/.dotfiles
+fi
 
-source $ZSH_BASE/antigen/antigen.zsh
+source $DOTFILES_DIR/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
