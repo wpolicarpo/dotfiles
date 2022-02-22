@@ -7,10 +7,10 @@
 - clean: ['~']
 
 - link:
-    ~/.gitconfig: gitconfig
-    ~/.gitignore_global: gitignore_global
-    ~/.zshrc: zshrc
-    ~/.zsh_aliases: zsh_aliases
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+    ~/.zshrc: zsh/zshrc
+    ~/.zsh_aliases: zsh/aliases
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

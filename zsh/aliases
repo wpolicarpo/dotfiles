@@ -1,0 +1,6 @@
+alias gti="git"
+alias be="bundle exec"
+
+if [ -f ~/.zsh_aliases_local ]; then
+    source ~/.zsh_aliases_local
+fi
