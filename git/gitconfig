@@ -2,6 +2,7 @@
 	co = checkout
 	st = status
 	comend = commit --amend --no-edit
+	pulne = "!f() { git pull && git remote prune origin; }; f"
 [pager]
 	branch = false
 [pull]
