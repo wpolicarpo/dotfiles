@@ -9,6 +9,7 @@
 - link:
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
+    ~/.irbrc: ruby/irbrc
     ~/.zshrc: zsh/zshrc
     ~/.zsh_aliases: zsh/aliases
 
