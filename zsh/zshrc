@@ -9,6 +9,8 @@ source $DOTFILES_DIR/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
+antigen bundle asdf
+antigen bundle brew
 
 case `uname` in
   Darwin)
