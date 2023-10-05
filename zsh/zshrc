@@ -24,3 +24,7 @@ antigen theme robbyrussell
 antigen apply
 
 source ~/.zsh_aliases
+
+bindkey -e
+bindkey '\e\e[C' forward-word
+bindkey '\e\e[D' backward-word
