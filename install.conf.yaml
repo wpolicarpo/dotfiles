@@ -9,8 +9,10 @@
 - brew:
   - asdf
   - jq
+  - neovim
   - pinentry
   - ykman
+  - zoxide
 
 - link:
     ~/.gitconfig: git/gitconfig
