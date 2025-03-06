@@ -6,6 +6,12 @@
 
 - clean: ['~']
 
+- brew:
+  - asdf
+  - jq
+  - pinentry
+  - ykman
+
 - link:
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global

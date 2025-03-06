@@ -15,3 +15,7 @@
 	gpgsign = true
 [rebase]
 	autosquash = true
+[user]
+	email = wpolicarpo@gmail.com
+	name = Wanderson Policarpo
+	signingkey = 560D2A6BD0CA21B4615C66E5DA69B2469CAA8999
