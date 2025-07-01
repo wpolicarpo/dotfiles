@@ -15,11 +15,15 @@
   - zoxide
   - jandedobbeleer/oh-my-posh/oh-my-posh
 
+- cask:
+  - iterm2
+
 - link:
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
     ~/.gemrc: ruby/gemrc
     ~/.zshrc: zsh/zshrc
+    "~/Library/Application Support/iTerm2/DynamicProfiles/wpolicarpo.json": iterm/wpolicarpo.json
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
