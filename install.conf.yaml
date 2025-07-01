@@ -13,6 +13,7 @@
   - pinentry
   - ykman
   - zoxide
+  - jandedobbeleer/oh-my-posh/oh-my-posh
 
 - link:
     ~/.gitconfig: git/gitconfig

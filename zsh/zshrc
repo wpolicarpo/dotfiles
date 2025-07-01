@@ -25,6 +25,7 @@ alias vim="nvim"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
+eval "$(oh-my-posh init zsh --config '~/.dotfiles/zsh/omp.toml')"
 
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
