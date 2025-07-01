@@ -5,7 +5,6 @@ source $DOTFILES_DIR/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle git
-antigen bundle asdf
 antigen bundle brew
 
 case `uname` in
@@ -16,12 +15,12 @@ case `uname` in
 esac
 
 antigen theme robbyrussell
-
 antigen apply
 
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
-source ~/.zsh_aliases
+alias gti="git"
+alias be="bundle exec"
+alias vi="nvim"
+alias vim="nvim"
 
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local

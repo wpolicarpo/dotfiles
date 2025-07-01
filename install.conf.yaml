@@ -7,7 +7,7 @@
 - clean: ['~']
 
 - brew:
-  - asdf
+  - mise
   - jq
   - neovim
   - pinentry
@@ -18,7 +18,6 @@
     ~/.gitconfig: git/gitconfig
     ~/.gitignore_global: git/gitignore_global
     ~/.gemrc: ruby/gemrc
-    ~/.irbrc: ruby/irbrc
     ~/.zshrc: zsh/zshrc
     ~/.zsh_aliases: zsh/aliases
 
