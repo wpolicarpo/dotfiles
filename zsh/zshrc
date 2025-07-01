@@ -22,6 +22,10 @@ alias be="bundle exec"
 alias vi="nvim"
 alias vim="nvim"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+eval "$(zoxide init zsh)"
+
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
