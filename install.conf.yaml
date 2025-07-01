@@ -19,7 +19,6 @@
     ~/.gitignore_global: git/gitignore_global
     ~/.gemrc: ruby/gemrc
     ~/.zshrc: zsh/zshrc
-    ~/.zsh_aliases: zsh/aliases
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
