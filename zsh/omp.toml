@@ -1,5 +1,9 @@
 version = 3
 
+[palette]
+folder-foreground= '#42a9ff'
+git-background = '#193549'
+
 [upgrade]
   source = 'cdn'
   interval = '168h'
@@ -11,8 +15,8 @@ version = 3
   alignment = 'left'
 
   [[blocks.segments]]
-    template = '{{ .Path }} '
-    foreground = '#42a9ff'
+    template = '{{ .Folder }} '
+    foreground = 'p:folder-foreground'
     type = 'path'
     style = 'plain'
 
@@ -20,21 +24,16 @@ version = 3
       style = 'full'
 
   [[blocks.segments]]
-    template = 'git:{{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<#ffdd86>{{ .HEAD }}</>{{ else }}{{ .HEAD }}{{ end }}{{ if .Staging.Changed }} <#98c379>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <#d16971>{{ .Working.String }}</>{{ end }}'
+    template = '{{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<#ffdd86>{{ .HEAD }}</>{{ else }}{{ .HEAD }}{{ end }}{{ if .Staging.Changed }} <#98c379>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <#d16971>{{ .Working.String }}</>{{ end }}'
     type = 'git'
     style = 'plain'
-
+    background = 'p:git-background'
     [blocks.segments.properties]
       branch_icon = ''
       fetch_status = true
 
-[[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-  newline = true
-
   [[blocks.segments]]
-    template = '> '
+    template = ' > '
     foreground = '#ffdd86'
     type = 'status'
     style = 'plain'
@@ -42,3 +41,4 @@ version = 3
 
     [blocks.segments.properties]
       always_enabled = true
+
