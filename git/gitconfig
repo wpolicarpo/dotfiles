@@ -3,6 +3,8 @@
 	st = status
 	comend = commit --amend --no-edit
 	pulne = "!f() { git pull && git remote prune origin; }; f"
+[core]
+	editor = nvim
 [pager]
 	branch = false
 [pull]
