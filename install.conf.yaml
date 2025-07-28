@@ -21,6 +21,7 @@
 - cask:
   - raycast
   - iterm2
+  - 1password
 
 - link:
     ~/.gitconfig: git/gitconfig
