@@ -7,6 +7,8 @@
 - clean: ['~']
 
 - brew:
+  - antigen
+  - fzf
   - mise
   - jq
   - neovim

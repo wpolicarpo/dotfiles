@@ -1,6 +1,4 @@
-DOTFILES_DIR=~/.dotfiles
-
-source $DOTFILES_DIR/antigen/antigen.zsh
+source /opt/homebrew/share/antigen/antigen.zsh
 
 antigen bundle git
 antigen bundle brew
@@ -24,6 +22,6 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config '~/.dotfiles/zsh/omp.toml')"
 
-if [ -f ~/.zshrc_local ]; then
-    source ~/.zshrc_local
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
 fi
