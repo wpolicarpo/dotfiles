@@ -1,43 +1,57 @@
 version = 3
 
 [palette]
-folder-foreground= '#42a9ff'
-git-background = '#193549'
+arrow-foreground= "#ffdd86"
+folder-foreground= "#42a9ff"
+git-background = "#193549"
 
 [upgrade]
-  source = 'cdn'
-  interval = '168h'
+  source = "cdn"
+  interval = "168h"
   auto = false
   notice = false
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
+  type = "prompt"
+  alignment = "left"
 
   [[blocks.segments]]
-    template = '{{ .Folder }} '
-    foreground = 'p:folder-foreground'
-    type = 'path'
-    style = 'plain'
+    template = "{{ .Folder }} "
+    foreground = "p:folder-foreground"
+    type = "path"
+    style = "plain"
 
     [blocks.segments.properties]
-      style = 'full'
+      style = "full"
+
 
   [[blocks.segments]]
-    template = '{{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}<#ffdd86>{{ .HEAD }}</>{{ else }}{{ .HEAD }}{{ end }}{{ if .Staging.Changed }} <#98c379>{{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }} <#d16971>{{ .Working.String }}</>{{ end }}'
-    type = 'git'
-    style = 'plain'
-    background = 'p:git-background'
+    template = """\
+      {{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }} \
+        <#ffdd86>{{ .HEAD }}</> \
+      {{ else }}\
+        {{ .HEAD }} \
+      {{ end }}\
+      {{ if .Staging.Changed }}\
+        <#98c379>{{ .Staging.String }}</> \
+      {{ end }}\
+      {{ if .Working.Changed }}\
+        <#d16971>{{ .Working.String }}</> \
+      {{ end }}\
+    """
+    type = "git"
+    style = "plain"
+    background = "p:git-background"
+
     [blocks.segments.properties]
-      branch_icon = ''
+      branch_icon = ""
       fetch_status = true
 
   [[blocks.segments]]
-    template = ' > '
-    foreground = '#ffdd86'
-    type = 'status'
-    style = 'plain'
-    foreground_templates = ['{{ if gt .Code 0 }}#42a9ff{{ end }}']
+    template = " \u276f "
+    foreground = "p:arrow-foreground"
+    type = "status"
+    style = "plain"
 
     [blocks.segments.properties]
       always_enabled = true

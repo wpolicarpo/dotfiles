@@ -2,6 +2,12 @@ source /opt/homebrew/share/antigen/antigen.zsh
 
 antigen bundle git
 antigen bundle brew
+antigen bundle z
+antigen bundle node
+antigen bundle npm
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle zsh-users/zsh-autosuggestions
 
 case `uname` in
   Darwin)
@@ -21,6 +27,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config '~/.dotfiles/zsh/omp.toml')"
+
+export HISTSIZE=10000
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
