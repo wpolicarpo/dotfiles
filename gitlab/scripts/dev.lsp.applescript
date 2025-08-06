@@ -1,0 +1,52 @@
+#!/usr/bin/osascript
+
+# @raycast.schemaVersion 1
+# @raycast.packageName GitLab.dev
+# @raycast.title Start GitLab LSP dev environment
+# @raycast.mode silent
+# @raycast.icon ~/.dotfiles/gitlab/gitlab.svg
+
+tell application "iTerm2"
+    create window with default profile
+
+    tell current window
+        tell current session of current tab
+            split vertically with default profile
+        end tell
+
+        tell first session of current tab
+            split horizontally with default profile
+        end tell
+
+        tell third session of current tab
+            split horizontally with default profile
+        end tell
+
+        tell first session of current tab
+            set name to "gitlab-lsp"
+            write text "cd ~/git/gitlab-lsp"
+            write text "printf \"\\e]1337;SetBadgeFormat=%s\\a\" $(echo -n gitlab-lsp | base64)"
+            write text "npm run watch -- --editor=vscode"
+        end tell
+
+        tell second session of current tab
+            set name to "gitlab-lsp"
+            write text "cd ~/git/gitlab-lsp"
+            write text "printf \"\\e]1337;SetBadgeFormat=%s\\a\" $(echo -n gitlab-lsp | base64)"
+        end tell
+
+        tell third session of current tab
+            set name to "vscode"
+            write text "cd ~/git/gitlab-vscode-extension"
+            write text "printf \"\\e]1337;SetBadgeFormat=%s\\a\" $(echo -n vscode | base64)"
+            write text "npm run watch:desktop"
+        end tell
+
+        tell fourth session of current tab
+            set name to "vscode"
+            write text "cd ~/git/gitlab-vscode-extension"
+            write text "printf \"\\e]1337;SetBadgeFormat=%s\\a\" $(echo -n vscode | base64)"
+            write text "NODE_ENV=development GITLAB_VSCODE_ENV=development code --extensionDevelopmentPath=./dist-desktop ~/git/gitlab-lsp"
+        end tell
+    end tell
+end tell
