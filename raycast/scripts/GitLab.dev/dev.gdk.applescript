@@ -4,7 +4,7 @@
 # @raycast.packageName GitLab.dev
 # @raycast.title Start GitLab dev environment
 # @raycast.mode silent
-# @raycast.icon ~/.dotfiles/gitlab/gitlab.svg
+# @raycast.icon icon.png
 
 tell application "iTerm2"
     create window with default profile
