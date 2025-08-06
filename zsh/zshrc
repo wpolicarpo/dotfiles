@@ -19,6 +19,7 @@ esac
 antigen apply
 
 alias gti="git"
+alias gut="git"
 alias be="bundle exec"
 alias vi="nvim"
 alias vim="nvim"
@@ -28,7 +29,7 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config '~/.dotfiles/zsh/omp.toml')"
 
-export HISTSIZE=10000
+export HISTSIZE=100000
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local

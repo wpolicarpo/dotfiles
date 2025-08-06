@@ -1,8 +1,11 @@
 [alias]
+	cm = commit
 	co = checkout
-	st = status
 	comend = commit --amend --no-edit
+	po = push -u origin
 	pulne = "!f() { git pull && git remote prune origin; }; f"
+	st = status
+	sw = switch
 [core]
 	editor = nvim
 [pager]
