@@ -1,10 +1,10 @@
 #!/usr/bin/osascript
 
 # @raycast.schemaVersion 1
-# @raycast.packageName GitLab.dev
+# @raycast.packageName gitlab.dev
 # @raycast.title Start GitLab LSP dev environment
 # @raycast.mode silent
-# @raycast.icon icon.png
+# @raycast.icon ../icons/gitlab.dev.png
 
 tell application "iTerm2"
     create window with default profile
