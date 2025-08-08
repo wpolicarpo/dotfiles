@@ -58,3 +58,13 @@
     - description: "[iTerm] Profiles > Set as Default"
       command: >-
         defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "878B4854-F6C5-4E98-9D71-278857101B22"
+    
+    - description: "[ZSH] Set color scheme"
+      command: >-
+        BASE16_SHELL="$HOME/.antigen/bundles/chriskempson/base16-shell"
+        
+        [ -n "$PS1" ] && \
+          [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+            source "$BASE16_SHELL/profile_helper.sh"
+
+        base16_default-dark
