@@ -1,5 +1,6 @@
 source /opt/homebrew/share/antigen/antigen.zsh
 
+antigen bundle chriskempson/base16-shell
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-autosuggestions
@@ -39,3 +40,6 @@ export HISTSIZE=100000
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+# Load shell color pallete
+base16_default-dark
