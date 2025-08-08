@@ -46,7 +46,7 @@ tell application "iTerm2"
             set name to "vscode"
             write text "cd ~/git/gitlab-vscode-extension"
             write text "printf \"\\e]1337;SetBadgeFormat=%s\\a\" $(echo -n vscode | base64)"
-            write text "NODE_ENV=development GITLAB_VSCODE_ENV=development code --extensionDevelopmentPath=./dist-desktop ~/git/gitlab-lsp"
+            write text "NODE_ENV=development GITLAB_VSCODE_ENV=development code --extensionDevelopmentPath=./dist-desktop --add ~/git/gitlab-lsp --add ~/git/gitlab-vscode-extension"
         end tell
     end tell
 end tell
