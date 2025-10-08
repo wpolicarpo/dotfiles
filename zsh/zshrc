@@ -37,7 +37,8 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "~/.zcompcache"
 
-export HISTSIZE=100000
+export HISTSIZE=10
+export HISTFILESIZE=100000
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
