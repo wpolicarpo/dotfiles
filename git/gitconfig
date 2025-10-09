@@ -1,4 +1,6 @@
 [alias]
+	b = branch
+	bd = branch -D
 	cm = commit -m
 	co = checkout
 	comend = commit --amend --no-edit
@@ -7,6 +9,7 @@
 	po = push -u origin
 	pulne = "!f() { git pull && git remote prune origin; }; f"
 	rb = rebase -i
+	s = status
 	st = status
 [core]
 	editor = nvim
