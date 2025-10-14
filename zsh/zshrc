@@ -24,6 +24,7 @@ alias ls="ls --color"
 alias l="ls --color"
 alias ll="ls -la --color"
 alias mx="mise x --"
+alias spc="bundle exec rspec"
 alias ..="cd .."
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -37,7 +38,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "~/.zcompcache"
 
-export HISTSIZE=50000        # Number of commands to keep in memory during your session
+export HISTSIZE=50000        # Number of commands to keep in memory during a session
 export SAVEHIST=50000        # Number of commands to save in the history file
 setopt INC_APPEND_HISTORY    # Write to history file immediately, not when shell exits
 setopt SHARE_HISTORY         # Share history between all sessions
