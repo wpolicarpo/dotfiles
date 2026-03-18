@@ -37,9 +37,16 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "~/.zcompcache"
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:git-switch:*' sort false
+zstyle ':completion:*:git-merge:*' sort false
+zstyle ':completion:*:*:git-checkout:*:*' tag-order 'heads'
+zstyle ':completion:*:*:git-switch:*:*' tag-order 'heads'
 
 export HISTSIZE=50000        # Number of commands to keep in memory during a session
 export SAVEHIST=50000        # Number of commands to save in the history file
+export PATH="$HOME/.local/bin:$PATH"
+
 setopt INC_APPEND_HISTORY    # Write to history file immediately, not when shell exits
 setopt SHARE_HISTORY         # Share history between all sessions
 setopt EXTENDED_HISTORY      # Record timestamp of command
