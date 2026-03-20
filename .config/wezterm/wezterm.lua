@@ -6,17 +6,15 @@ local config = wezterm.config_builder()
 -- Appearance
 -- ─────────────────────────────────────────────
 
-config.color_scheme = "Catppuccin Mocha" -- change to taste
 config.font = wezterm.font("JetBrains Mono", { weight = "Regular" })
 config.font_size = 13.0
 
-config.window_decorations = "RESIZE" -- hide title bar, keep resize border
 config.window_padding = { left = 8, right = 8, top = 8, bottom = 8 }
 
 config.enable_tab_bar = true
-config.use_fancy_tab_bar = false -- set to true for a macOS-native look
+config.use_fancy_tab_bar = true -- set to true for a macOS-native look
 config.tab_bar_at_bottom = false
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 
 -- ─────────────────────────────────────────────
 -- Scrollback
