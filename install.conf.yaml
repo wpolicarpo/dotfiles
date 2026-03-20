@@ -20,7 +20,6 @@
 
 - cask:
   - raycast
-  - 1password
 
 - link:
     ~/.gitconfig: git/gitconfig
