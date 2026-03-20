@@ -6,8 +6,7 @@ local config = wezterm.config_builder()
 -- Appearance
 -- ─────────────────────────────────────────────
 
-config.font = wezterm.font("JetBrains Mono", { weight = "Regular" })
-config.font_size = 13.0
+config.font_size = 18.0
 
 config.window_padding = { left = 8, right = 8, top = 8, bottom = 8 }
 
@@ -20,7 +19,7 @@ config.hide_tab_bar_if_only_one_tab = false
 -- Scrollback
 -- ─────────────────────────────────────────────
 
-config.scrollback_lines = 10000
+config.scrollback_lines = 100000
 
 -- ─────────────────────────────────────────────
 -- Bell
@@ -40,45 +39,118 @@ config.keys = {
   {
     key = "d",
     mods = "CMD",
-    action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+    action = act.SplitHorizontal({ domain = "CurrentPaneDomain" })
   },
   {
     key = "d",
     mods = "CMD|SHIFT",
-    action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+    action = act.SplitVertical({ domain = "CurrentPaneDomain" })
   },
 
-  -- ── Pane navigation (CMD + arrow) ───────────
-  { key = "LeftArrow",  mods = "CMD", action = act.ActivatePaneDirection("Left")  },
-  { key = "RightArrow", mods = "CMD", action = act.ActivatePaneDirection("Right") },
-  { key = "UpArrow",    mods = "CMD", action = act.ActivatePaneDirection("Up")    },
-  { key = "DownArrow",  mods = "CMD", action = act.ActivatePaneDirection("Down")  },
+  -- ── Pane navigation (CMD + OPT + arrow) ─────
+  {
+    key = "LeftArrow",
+    mods = "CMD|OPT",
+    action = act.ActivatePaneDirection("Left")
+  },
+  {
+    key = "RightArrow",
+    mods = "CMD|OPT",
+    action = act.ActivatePaneDirection("Right")
+  },
+  {
+    key = "UpArrow",
+    mods = "CMD|OPT",
+    action = act.ActivatePaneDirection("Up")
+  },
+  {
+    key = "DownArrow",
+    mods = "CMD|OPT",
+    action = act.ActivatePaneDirection("Down")
+  },
 
-  -- ── Word jump (Option + left / right) ───────
+  -- ── Line jump (CMD + left / right) ─────────────────
+  {
+    key = "LeftArrow",
+    mods = "CMD",
+    action = act.SendString("\x01")
+  },
+  {
+    key = "RightArrow",
+    mods = "CMD",
+    action = act.SendString("\x05")
+  },
+
+  -- ── Word jump (Option|Ctrl + left / right) ───────
   -- WezTerm on macOS sends ;3C / ;3D by default — override with proper
   -- readline-compatible sequences: ESC+b (back-word) / ESC+f (forward-word)
-  { key = "LeftArrow",  mods = "OPT", action = act.SendString("\x1bb") },
-  { key = "RightArrow", mods = "OPT", action = act.SendString("\x1bf") },
+  {
+    key = "LeftArrow",
+    mods = "OPT",
+    action = act.SendString("\x1bb") },
+  {
+    key = "RightArrow",
+    mods = "OPT",
+    action = act.SendString("\x1bf") },
+  {
+    key = "LeftArrow",
+    mods = "CTRL",
+    action = act.SendString("\x1bb")
+  },
+  {
+    key = "RightArrow",
+    mods = "CTRL",
+    action = act.SendString("\x1bf")
+  },
 
   -- ── Tabs ────────────────────────────────────
-  { key = "t", mods = "CMD",       action = act.SpawnTab("CurrentPaneDomain") },
-  { key = "w", mods = "CMD",       action = act.CloseCurrentTab({ confirm = true }) },
-  { key = "[", mods = "CMD|SHIFT", action = act.ActivateTabRelative(-1) },
-  { key = "]", mods = "CMD|SHIFT", action = act.ActivateTabRelative(1)  },
+  {
+    key = "t",
+    mods = "CMD",
+    action = act.SpawnTab("CurrentPaneDomain") },
+  {
+    key = "[",
+    mods = "CMD|SHIFT",
+    action = act.ActivateTabRelative(-1) },
+  {
+    key = "]",
+    mods = "CMD|SHIFT",
+    action = act.ActivateTabRelative(1)  },
 
-  -- ── Zoom current pane ────────────────────────
-  { key = "z", mods = "CMD", action = act.TogglePaneZoomState },
+  -- ── Panes ───────────────────────────────────
+  {
+    key = "w",
+    mods = "CMD",
+    action = act.CloseCurrentPane({ confirm = true })
+  },
+  {
+    key = "Enter",
+    mods = "CMD|OPT",
+    action = act.TogglePaneZoomState
+  },
 
   -- ── Font size ───────────────────────────────
-  { key = "=", mods = "CMD", action = act.IncreaseFontSize },
-  { key = "-", mods = "CMD", action = act.DecreaseFontSize },
-  { key = "0", mods = "CMD", action = act.ResetFontSize     },
+  {
+    key = "=",
+    mods = "CMD",
+    action = act.IncreaseFontSize
+  },
+  {
+    key = "-",
+    mods = "CMD",
+    action = act.DecreaseFontSize
+  },
+  {
+    key = "0",
+    mods = "CMD",
+    action = act.ResetFontSize
+  },
 
   -- ── Clear scrollback ────────────────────────
   {
     key = "k",
     mods = "CMD",
-    action = act.ClearScrollback("ScrollbackAndViewport"),
+    action = act.ClearScrollback("ScrollbackAndViewport")
   },
 }
 
