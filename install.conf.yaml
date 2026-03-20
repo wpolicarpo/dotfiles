@@ -29,7 +29,7 @@
     ~/.gemrc: ruby/gemrc
     ~/.zshrc: zsh/zshrc
     ~/Library/Application Support/iTerm2/DynamicProfiles/profiles.json: iterm/profiles.json
-    ~/.config: .config
+    ~/.config/wezterm/wezterm.lua: .config/wezterm/wezterm.lua
 
 - shell:
     - description: "Installing submodules"
