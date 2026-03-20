@@ -11,9 +11,39 @@ config.font_size = 18.0
 config.window_padding = { left = 8, right = 8, top = 8, bottom = 8 }
 
 config.enable_tab_bar = true
-config.use_fancy_tab_bar = true -- set to true for a macOS-native look
-config.tab_bar_at_bottom = false
+config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = true
 config.hide_tab_bar_if_only_one_tab = false
+
+config.inactive_pane_hsb = {
+  saturation = 0.1,
+  brightness = 0.8,
+}
+
+config.colors = {
+  tab_bar = {
+    active_tab = {
+      bg_color = "#b5d5f5", -- pastel blue
+      fg_color = "#1a1a2e",
+    },
+    inactive_tab = {
+      bg_color = "#2b2b3b",
+      fg_color = "#888899",
+    },
+    inactive_tab_hover = {
+      bg_color = "#3a3a4a",
+      fg_color = "#aaaacc",
+    },
+    new_tab = {
+      bg_color = "#2b2b3b",
+      fg_color = "#888899",
+    },
+    new_tab_hover = {
+      bg_color = "#3a3a4a",
+      fg_color = "#aaaacc",
+    },
+  },
+}
 
 -- ─────────────────────────────────────────────
 -- Scrollback
