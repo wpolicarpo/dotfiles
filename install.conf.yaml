@@ -29,6 +29,7 @@
     ~/.gemrc: ruby/gemrc
     ~/.zshrc: zsh/zshrc
     ~/Library/Application Support/iTerm2/DynamicProfiles/profiles.json: iterm/profiles.json
+    ~/.config/nvim/init.lua: .config/nvim/init.lua
     ~/.config/wezterm/wezterm.lua: .config/wezterm/wezterm.lua
 
 - shell:
