@@ -20,7 +20,6 @@
 
 - cask:
   - raycast
-  - iterm2
   - 1password
 
 - link:
@@ -28,7 +27,6 @@
     ~/.gitignore_global: git/gitignore_global
     ~/.gemrc: ruby/gemrc
     ~/.zshrc: zsh/zshrc
-    ~/Library/Application Support/iTerm2/DynamicProfiles/profiles.json: iterm/profiles.json
     ~/.config/nvim/init.lua: .config/nvim/init.lua
     ~/.config/wezterm/wezterm.lua: .config/wezterm/wezterm.lua
 
@@ -36,27 +34,3 @@
     - description: "Installing submodules"
       command: >-
         git submodule update --init --recursive
-
-    - description: "[iTerm] General > Software Update > Check for updates automatically"
-      command: >-
-        defaults write com.googlecode.iterm2 "SUEnableAutomaticChecks" -bool true
-
-    - description: "[iTerm] General > Software Update > Ignore non-critical shell integration updates"
-      command: >-
-        defaults write com.googlecode.iterm2 "NotifyOnlyForCriticalShellIntegrationUpdates" -bool false
-
-    - description: "[iTerm] Appearance > Tabs > Show tab bar even when there is only one tab"
-      command: >-
-        defaults write com.googlecode.iterm2 "HideTab" -bool false
-
-    - description: "[iTerm] Appearance > Dimming > Dim background windows"
-      command: >-
-        defaults write com.googlecode.iterm2 "DimBackgroundWindows" -bool true
-
-    - description: "[iTerm] Appearance > Dimming > Dimming amount"
-      command: >-
-        defaults write com.googlecode.iterm2 "SplitPaneDimmingAmount" -float 0.50
-
-    - description: "[iTerm] Profiles > Set as Default"
-      command: >-
-        defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "878B4854-F6C5-4E98-9D71-278857101B22"
