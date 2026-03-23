@@ -58,6 +58,63 @@ config.scrollback_lines = 100000
 config.audible_bell = "Disabled"
 
 -- ─────────────────────────────────────────────
+-- Hyperlinks (CMD+click to open file paths)
+-- ─────────────────────────────────────────────
+
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+-- Match absolute file paths: /foo/bar/baz.lua or /foo/bar/baz.lua:42:5
+table.insert(config.hyperlink_rules, {
+  regex = [[(/{1}[^\s"'<>()]+\.\w+(?::\d+(?::\d+)?)?)]],
+  format = "file://$1",
+})
+
+-- Match relative file paths: ./foo/bar.lua, .config/foo/bar.lua, or with :line:col
+table.insert(config.hyperlink_rules, {
+  regex = [[(\.[/\w][^\s"'<>()]*\.\w+(?::\d+(?::\d+)?)?)]],
+  format = "relfile://$1",
+})
+
+-- Intercept file:// and relfile:// URIs and open them in VSCode with correct line/col
+wezterm.on("open-uri", function(window, pane, uri)
+  local raw = uri:match("^file://(.+)$") or uri:match("^relfile://(.+)$")
+  if not raw then return end
+
+  local is_relative = uri:match("^relfile://") ~= nil
+  local path, line, col = raw:match("^([^:]+):?(%d*):?(%d*)$")
+  if not path then return end
+
+  if is_relative then
+    local cwd_url = pane:get_current_working_dir()
+    local cwd = cwd_url and cwd_url.file_path or ""
+    -- strip trailing slash from cwd, strip leading ./ from path
+    cwd = cwd:gsub("/$", "")
+    path = path:gsub("^%./", "")
+    path = cwd .. "/" .. path
+  end
+
+  local target = path
+  if line and line ~= "" then
+    target = target .. ":" .. line
+    if col and col ~= "" then
+      target = target .. ":" .. col
+    end
+  end
+
+  wezterm.run_child_process({ "code", "--goto", target })
+  return false
+end)
+
+config.mouse_bindings = {
+  -- CMD+click opens hyperlinks (URLs and file paths)
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "CMD",
+    action = act.OpenLinkAtMouseCursor,
+  },
+}
+
+-- ─────────────────────────────────────────────
 -- Key bindings
 -- ─────────────────────────────────────────────
 
