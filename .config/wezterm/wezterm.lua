@@ -75,38 +75,14 @@ table.insert(config.hyperlink_rules, {
   format = "relfile://$1",
 })
 
--- Intercept file:// and relfile:// URIs and open them in VSCode with correct line/col
-wezterm.on("open-uri", function(window, pane, uri)
-  local raw = uri:match("^file://(.+)$") or uri:match("^relfile://(.+)$")
-  if not raw then return end
-
-  local is_relative = uri:match("^relfile://") ~= nil
-  local path, line, col = raw:match("^([^:]+):?(%d*):?(%d*)$")
-  if not path then return end
-
-  if is_relative then
-    local cwd_url = pane:get_current_working_dir()
-    local cwd = cwd_url and cwd_url.file_path or ""
-    -- strip trailing slash from cwd, strip leading ./ from path
-    cwd = cwd:gsub("/$", "")
-    path = path:gsub("^%./", "")
-    path = cwd .. "/" .. path
-  end
-
-  local target = path
-  if line and line ~= "" then
-    target = target .. ":" .. line
-    if col and col ~= "" then
-      target = target .. ":" .. col
-    end
-  end
-
-  wezterm.run_child_process({ "code", "--goto", target })
-  return false
-end)
-
 config.mouse_bindings = {
-  -- CMD+click opens hyperlinks (URLs and file paths)
+  -- Plain left-click: complete selection only, never open a link
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "NONE",
+    action = act.CompleteSelection("ClipboardAndPrimarySelection"),
+  },
+  -- CMD+click: highlight (on hover) and open link
   {
     event = { Up = { streak = 1, button = "Left" } },
     mods = "CMD",
@@ -115,11 +91,32 @@ config.mouse_bindings = {
 }
 
 -- ─────────────────────────────────────────────
+-- Search mode key table
+-- Override ESC to clear the pattern before closing, so the next CMD+F starts empty
+-- ─────────────────────────────────────────────
+
+local search_mode = {}
+local defaults = wezterm.default_key_tables and wezterm.default_key_tables() or {}
+for _, b in ipairs(defaults.search_mode or {}) do
+  if b.key ~= "Escape" then
+    table.insert(search_mode, b)
+  end
+end
+table.insert(search_mode, {
+  key = "Escape",
+  mods = "NONE",
+  action = act.Multiple({
+    act.CopyMode("ClearPattern"),
+    act.CopyMode("Close"),
+  }),
+})
+config.key_tables = { search_mode = search_mode }
+
+-- ─────────────────────────────────────────────
 -- Key bindings
 -- ─────────────────────────────────────────────
 
 config.keys = {
-
   -- ── Pane splitting ──────────────────────────
   -- CMD+D        → split right (vertical divider, like iTerm "Split Vertically")
   -- CMD+SHIFT+D  → split down  (horizontal divider, like iTerm "Split Horizontally")
@@ -239,6 +236,23 @@ config.keys = {
     mods = "CMD",
     action = act.ClearScrollback("ScrollbackAndViewport")
   },
+
+  -- ── Search  ─────────────────────────────────
+  {
+    key = "f",
+    mods = "CMD",
+    action = act.Search({ CaseInSensitiveString = "" }),
+  },
+  {
+    key = "g",
+    mods = "CMD",
+    action = act.CopyMode("NextMatch"),
+  },
+  {
+    key = "g",
+    mods = "CMD|SHIFT",
+    action = act.CopyMode("PriorMatch"),
+  }
 }
 
 return config
